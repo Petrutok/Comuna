@@ -1,0 +1,1 @@
+import '@/ai/flows/summarize-meeting-minutes.ts';
