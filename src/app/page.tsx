@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
-import NotificationButton from '@/components/notification-button'
 import {
-
   AlertTriangle,
   Users,
   FileText,
@@ -223,11 +221,6 @@ export default function HomePage() {
           })}
         </div>
       </div>
-
-<div className="flex justify-center my-8">
-  <NotificationButton />
-</div>
-
 
       {/* Footer */}
       <footer className="bg-slate-800 border-t border-slate-700 mt-12">
