@@ -14,6 +14,7 @@ import {
   Home,
   Recycle
 } from 'lucide-react';
+import { NotificationButton } from '@/components/NotificationButton';
 
 export default function HomePage() {
   const cards = [
@@ -102,6 +103,11 @@ export default function HomePage() {
         </div>
         
         <div className="max-w-7xl mx-auto px-4 py-12 relative z-10">
+          {/* Butonul de notificări în colțul din dreapta sus */}
+          <div className="absolute top-4 right-4">
+            <NotificationButton />
+          </div>
+          
           <div className="text-center">
             <div className="flex items-center justify-center mb-6 space-x-4">
               {/* Logo SVG Primărie */}

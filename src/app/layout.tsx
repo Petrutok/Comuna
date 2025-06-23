@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from 'next/script'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,7 +42,32 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="e-UAT" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Script
+          src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          id="onesignal-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.OneSignalDeferred = window.OneSignalDeferred || [];
+              OneSignalDeferred.push(async function(OneSignal) {
+                await OneSignal.init({
+                  appId: "e8eac05e-f36d-453c-a3ff-f5532c618786",
+                  allowLocalhostAsSecureOrigin: true,
+                  notifyButton: {
+                    enable: false
+                  }
+                });
+              });
+            `,
+          }}
+        />
+        {children}
+        <Toaster />
+      </body>
     </html>
   )
 }

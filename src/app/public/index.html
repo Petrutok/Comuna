@@ -1,4 +1,48 @@
-html<link rel="manifest" href="/manifest.json">
-<link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png">
-<link rel="apple-touch-icon" href="/icon-192x192.png">
-<meta name="theme-color" content="#000000">
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Existing meta tags -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png">
+  <link rel="apple-touch-icon" href="/icon-192x192.png">
+  <meta name="theme-color" content="#000000">
+  
+  <!-- OneSignal SDK -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "e8eac05e-f36d-453c-a3ff-f5532c618786",
+        safari_web_id: "web.onesignal.auto.2e8eac05e-f36d-453c-a3ff-f5532c618786",
+        notifyButton: {
+          enable: true,
+          position: 'bottom-right',
+          text: {
+            'tip.state.unsubscribed': 'Activează notificările',
+            'tip.state.subscribed': "Notificările sunt active",
+            'tip.state.blocked': "Notificările sunt blocate",
+            'message.prenotify': 'Click pentru a activa notificările',
+            'message.action.subscribed': "Vei primi notificări importante",
+            'message.action.resubscribed': "Notificările sunt active",
+            'message.action.unsubscribed': "Nu vei mai primi notificări",
+            'dialog.main.title': 'Activează Notificări',
+            'dialog.main.button.subscribe': 'ACTIVEAZĂ',
+            'dialog.main.button.unsubscribe': 'DEZACTIVEAZĂ',
+            'dialog.blocked.title': 'Deblochează Notificările',
+            'dialog.blocked.message': "Urmează instrucțiunile pentru a activa notificările"
+          }
+        },
+        allowLocalhostAsSecureOrigin: true,
+        welcomeNotification: {
+          title: "Comuna - Primăria Digitală",
+          message: "Vei primi notificări despre evenimente și anunțuri importante"
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Your app content -->
+</body>
+</html>
